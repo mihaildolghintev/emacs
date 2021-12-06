@@ -43,6 +43,7 @@
 
 (setq comp-async-report-warnings-errors nil)
 
+
 (use-package undo-tree
   :init
   (global-undo-tree-mode 1))
@@ -63,7 +64,6 @@
   (evil-define-key 'normal 'global (kbd "<leader>m") 'counsel-switch-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>o") 'er/mark-outside-pairs)
   (evil-define-key 'normal 'global (kbd "<leader>w") 'evil-window-map)
-  (evil-define-key 'normal 'global (kbd "<leader>ka") 'paredit-splice-sexp-killing-backward)
   (evil-define-key 'normal 'global (kbd "<leader>kc") 'kill-current-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>pp") 'counsel-projectile-switch-project)
   (evil-define-key 'normal 'global (kbd "<leader>pr") 'counsel-projectile-rg)
@@ -275,6 +275,14 @@
   :config
   (setq ruby-insert-encoding-magic-comment nil))
 
+(use-package robe
+  :config
+  (add-hook 'ruby-mode-hook #'robe-mode))
+
+(use-package ruby-test-mode)
+(use-package rbenv
+  :init
+  (global-rbenv-mode))
 
 (use-package elec-pair
   :config
